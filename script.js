@@ -96,7 +96,7 @@ teddy.addEventListener('touchend', stopHold);
 
 function goWhatsApp() {
   const msg = encodeURIComponent(
-    "This made me smile 🧸❤️.\nHappy Teddy Day ❤️."
+    "This made me smile so much today 🧸❤️.\nHappy Teddy Day ❤️."
   );
   const t = Date.now();
   window.location.href = `https://wa.me/9111113431?text=${msg}&v=${t}`;
