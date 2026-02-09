@@ -71,19 +71,21 @@ function completeHug() {
 }
 
 function createHeart() {
-  const size = 22 + Math.random() * 12;
-heart.style.fontSize = size + 'px';
   const heart = document.createElement('div');
   heart.classList.add('heart');
   heart.textContent = '❤️';
 
-  const xOffset = Math.random() * 100 - 50;
+  const size = 22 + Math.random() * 12;
+  heart.style.fontSize = size + 'px';
+
+  const xOffset = Math.random() * 140 - 70;
   heart.style.left = `calc(50% + ${xOffset}px)`;
 
   document.body.appendChild(heart);
 
   setTimeout(() => heart.remove(), 3000);
 }
+
 
 teddy.addEventListener('mousedown', startHold);
 teddy.addEventListener('touchstart', startHold);
