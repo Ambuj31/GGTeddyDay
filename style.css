@@ -12,6 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overscroll-behavior: none;
+  touch-action: manipulation;
   overflow: hidden;
   transition: background 0.6s ease;
 }
