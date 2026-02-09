@@ -65,7 +65,7 @@ function completeHug() {
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
-  heart.textContent = '🤍';
+  heart.textContent = '❤️';
 
   const xOffset = Math.random() * 100 - 50;
   heart.style.left = `calc(50% + ${xOffset}px)`;
