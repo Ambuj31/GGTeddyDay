@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teddy Day 🧸</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- 🎁 SCREEN 1 -->
+  <div class="container" id="screen1">
+    <h1>Something soft…<br>Something warm 🤍</h1>
+    <div class="box"></div>
+    <button onclick="openBox()">Open Your Teddy</button>
+  </div>
+
+  <!-- 🧸 SCREEN 2 -->
+  <div class="container hidden" id="screen2">
+    <div class="teddy">🧸</div>
+    <p>
+      I wish I could send you this teddy…<br>
+      till then, let this one hug you for me 🤍
+    </p>
+    <button onclick="showHug()">Give Teddy a Hug</button>
+  </div>
+
+  <!-- 🤍 SCREEN 3 -->
+  <div class="container hidden" id="screen3">
+    <div class="teddy" id="teddy">🧸</div>
+    <p>Press & hold to feel the hug 🤍</p>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div class="final-text hidden" id="finalText">
+      <strong>From Ambuj</strong><br>
+      Whenever you need comfort,<br>
+      imagine this hug waiting for you 🧸🤍
+    </div>
+
+    <button class="hidden" id="whatsappBtn" onclick="goWhatsApp()">
+      Send this hug to me
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
