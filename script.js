@@ -2,10 +2,12 @@ const progressBar = document.getElementById('progress');
 const teddy = document.getElementById('teddy');
 const finalText = document.getElementById('finalText');
 const whatsappBtn = document.getElementById('whatsappBtn');
+const progressText = document.getElementById('progressText');
 
 let holding = false;
 let progress = 0;
 let interval;
+let heartInterval;
 
 function openBox() {
   document.getElementById('screen1').classList.add('hidden');
@@ -19,20 +21,26 @@ function showHug() {
 
 function startHold() {
   if (progress >= 100) return;
+
   holding = true;
   teddy.classList.add('hugging');
 
-  interval = setInterval(() => {
-    if (holding && progress < 100) {
-      progress += 2;
-      progressBar.style.width = progress + '%';
+  heartInterval = setInterval(createHeart, 400);
 
-      if (progress >= 100) {
-        clearInterval(interval);
-        finalText.classList.remove('hidden');
-        whatsappBtn.classList.remove('hidden');
-        navigator.vibrate?.(200);
-      }
+  interval = setInterval(() => {
+    if (!holding) return;
+
+    progress += 2;
+    progressBar.style.width = progress + '%';
+
+    // Progress text logic
+    if (progress >= 30 && progress < 60) {
+      progressText.textContent = "A little comfort…";
+    } else if (progress >= 60 && progress < 100) {
+      progressText.textContent = "A little warmth…";
+    } else if (progress >= 100) {
+      progressText.textContent = "All my care 🤍";
+      completeHug();
     }
   }, 50);
 }
@@ -41,10 +49,35 @@ function stopHold() {
   holding = false;
   teddy.classList.remove('hugging');
   clearInterval(interval);
+  clearInterval(heartInterval);
+}
+
+function completeHug() {
+  clearInterval(interval);
+  clearInterval(heartInterval);
+
+  finalText.classList.remove('hidden');
+  whatsappBtn.classList.remove('hidden');
+
+  navigator.vibrate?.(300);
+}
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.textContent = '🤍';
+
+  const xOffset = Math.random() * 100 - 50;
+  heart.style.left = `calc(50% + ${xOffset}px)`;
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 3000);
 }
 
 teddy.addEventListener('mousedown', startHold);
 teddy.addEventListener('touchstart', startHold);
+
 teddy.addEventListener('mouseup', stopHold);
 teddy.addEventListener('mouseleave', stopHold);
 teddy.addEventListener('touchend', stopHold);
