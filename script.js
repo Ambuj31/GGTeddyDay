@@ -25,7 +25,11 @@ function startHold() {
   holding = true;
   teddy.classList.add('hugging');
 
-  heartInterval = setInterval(createHeart, 400);
+  heartInterval = setInterval(() => {
+  createHeart();
+  if (Math.random() > 0.6) createHeart(); // sometimes double hearts
+}, 220);
+
 
   interval = setInterval(() => {
     if (!holding) return;
@@ -58,12 +62,17 @@ function completeHug() {
   clearInterval(heartInterval);
 
   finalText.classList.remove('hidden');
+  for (let i = 0; i < 12; i++) {
+  setTimeout(createHeart, i * 80);
+}
   whatsappBtn.classList.remove('hidden');
   document.body.classList.add('warm-hug');
   navigator.vibrate?.(300);
 }
 
 function createHeart() {
+  const size = 22 + Math.random() * 12;
+heart.style.fontSize = size + 'px';
   const heart = document.createElement('div');
   heart.classList.add('heart');
   heart.textContent = '❤️';
