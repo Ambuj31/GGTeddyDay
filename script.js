@@ -21,7 +21,7 @@ function showHug() {
 
 function startHold() {
   if (progress >= 100) return;
-
+  document.body.classList.add('warm-hug');
   holding = true;
   teddy.classList.add('hugging');
 
@@ -39,7 +39,7 @@ function startHold() {
     } else if (progress >= 60 && progress < 100) {
       progressText.textContent = "A little warmth…";
     } else if (progress >= 100) {
-      progressText.textContent = "All my care 🤍";
+      progressText.textContent = "All my care ❤️";
       completeHug();
     }
   }, 50);
@@ -48,6 +48,7 @@ function startHold() {
 function stopHold() {
   holding = false;
   teddy.classList.remove('hugging');
+  document.body.classList.remove('warm-hug');
   clearInterval(interval);
   clearInterval(heartInterval);
 }
@@ -58,7 +59,7 @@ function completeHug() {
 
   finalText.classList.remove('hidden');
   whatsappBtn.classList.remove('hidden');
-
+  document.body.classList.add('warm-hug');
   navigator.vibrate?.(300);
 }
 
@@ -84,7 +85,7 @@ teddy.addEventListener('touchend', stopHold);
 
 function goWhatsApp() {
   const msg = encodeURIComponent(
-    "I wish I could hug you right now 🧸🤍\nHappy Teddy Day"
+    "I wish I could hug you right now 🧸❤️\nHappy Teddy Day"
   );
   window.location.href = `https://wa.me/?text=${msg}`;
 }
