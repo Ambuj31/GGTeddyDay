@@ -81,9 +81,10 @@ button:active {
 }
 
 .hugging {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 25px #fff);
+  transform: scale(1.15);
+  filter: brightness(1.6) drop-shadow(0 0 40px rgba(255,255,255,0.9));
 }
+
 
 /* 🤍 Progress Bar */
 .progress-container {
@@ -107,4 +108,31 @@ button:active {
   font-size: 18px;
   color: #fff;
   line-height: 1.5;
+}
+.heart {
+  position: absolute;
+  bottom: 120px;
+  font-size: 20px;
+  color: #fff;
+  animation: floatUp 3s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-180px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Progress text */
+.progress-text {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #fff;
+  min-height: 22px;
 }
