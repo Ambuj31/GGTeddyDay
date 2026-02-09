@@ -98,5 +98,5 @@ function goWhatsApp() {
   const msg = encodeURIComponent(
     "I wish I could hug you right now 🧸❤️\nHappy Teddy Day"
   );
-  window.location.href = `https://wa.me/?text=${msg}`;
+  window.location.href = `https://wa.me/9111113431/?text=${msg}`;
 }
