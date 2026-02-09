@@ -114,6 +114,7 @@ button:active {
   bottom: 120px;
   font-size: 20px;
   color: #fff;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
   animation: floatUp 3s ease-in forwards;
   pointer-events: none;
 }
